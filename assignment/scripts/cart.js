@@ -50,6 +50,7 @@ function isFull() {
   }
 }
 console.log("TEST: expect false", isFull());
+
 // 3. Update the required addItem function to:
 // Use the isFull function to prevent more than maxItems from being added to the basket.
 // If an item was added to the array, return true
@@ -71,3 +72,21 @@ console.log("TEST: Adding bread (expect true)", addItemUpdated("bread"));
 console.log("TEST: Adding chicken (expect true)", addItemUpdated("chicken"));
 console.log(`TEST: Basket is now ${basket}`);
 console.log("TEST: adding tomatoes (expect false)", addItemUpdated("tomatoes"));
+
+// 4. Create a function called removeItem. It should:
+// Take an input parameter for a string item
+// Use Array.indexOf to find the index of the first matching item in the basket.
+// Use Array.splice to remove the first matching item from the basket.
+// Return the item removed or null if the item was not found
+console.log("******  removeItem  ******");
+function removeItem(item) {
+  let removedItem = basket[basket.indexOf(item)];
+  basket.splice(basket.indexOf(item), 1);
+  if (removedItem === undefined) {
+    removedItem = null;
+  }
+  return removedItem;
+}
+console.log("TEST: removing pasta (expect pasta)", removeItem("pasta"));
+console.log(`Basket is now ${basket}`);
+console.log("TEST: removing apples (expect null)", removeItem("apples"));
